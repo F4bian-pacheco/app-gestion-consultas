@@ -4,15 +4,17 @@ import {
   ConsultaDashboardContainer,
   ConsultaContainer
 } from './styled/Consulta.styled'
+import Tabs from './Tabs'
 
 
 
 function ConsultasContainerComponent() {
   return (
     <ConsultaDashboardContainer>
-      <ConsultaContainer>
+      <Tabs />
+      {/* <ConsultaContainer>
 
-      </ConsultaContainer>
+      </ConsultaContainer> */}
     </ConsultaDashboardContainer>
   )
 }

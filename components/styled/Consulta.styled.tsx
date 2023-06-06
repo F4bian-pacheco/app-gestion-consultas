@@ -5,12 +5,12 @@ import { motion } from 'framer-motion'
 const ConsultaDashboardContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #f39300;
+  /* background-color: #f39300; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  /* gap: 1.5rem; */
 `
 
 
