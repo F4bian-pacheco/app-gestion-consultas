@@ -1,10 +1,10 @@
 import React from 'react'
-import Breadcrumbs from './BreadCrumb'
+import Breadcrumbs from '../BreadCrumb'
 import {
   ConsultaDashboardContainer,
   ConsultaContainer
-} from './styled/Consulta.styled'
-import Tabs from './Tabs'
+} from '../styled/Consulta.styled'
+import Tabs from '../Tabs'
 
 
 
