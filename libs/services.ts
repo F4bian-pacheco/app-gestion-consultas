@@ -9,7 +9,7 @@ interface Usuario {
   telefono: string;
 }
 
-interface Consulta {
+export interface ConsultaI {
   id: number;
   fecha_atencion: string | null;
   respondida: boolean;
@@ -30,7 +30,7 @@ interface TipoConsulta extends Item { }
 
 interface EstadoConsulta extends Item { }
 
-const consultas: Consulta[] = [
+export const consultas: ConsultaI[] = [
   {
     id: 1,
     fecha_atencion: null,
@@ -66,18 +66,50 @@ const consultas: Consulta[] = [
       telefono: '+569 12345786'
     },
     estado: 'Respondida'
+  },
+  {
+    id: 3,
+    fecha_atencion: "2023-06-03",
+    respondida: true,
+    tipo_consulta: "Académica",
+    asunto: "Duda sobre el proyecto final",
+    descripcion: "Tengo una duda sobre el enunciado del proyecto final de la materia de Bases de Datos.",
+    usuario: {
+      id: 3,
+      nombre: "Juan",
+      apellido: "Gómez",
+      email: "juangomez@example.com",
+      rol: "Estudiante",
+      password: "secreto123",
+      telefono: "1234567890"
+    },
+    estado: "Resuelta"
+  },
+  {
+    id: 4,
+    fecha_atencion: "2023-06-01",
+    respondida: true,
+    tipo_consulta: "Académica",
+    asunto: "Consulta sobre programación",
+    descripcion: "Necesito ayuda con un problema de programación en Java.",
+    usuario: {
+      id: 4,
+      nombre: "Ana",
+      apellido: "Rodríguez",
+      email: "anarodriguez@example.com",
+      rol: "Estudiante",
+      password: "contraseña789",
+      telefono: "5551234567"
+    },
+    estado: "Resuelta"
   }
 ];
 
 
 interface IRespuestas {
   id: number,
-  consulta: Consulta,
+  consulta: ConsultaI,
   respuesta: string,
   fecha: string,
   usuario: Usuario
-}
-
-export default {
-  consultas
 }

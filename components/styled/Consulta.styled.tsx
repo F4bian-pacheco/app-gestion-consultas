@@ -14,14 +14,7 @@ const ConsultaDashboardContainer = styled.div`
 `
 
 
-const ConsultaContainer = styled.main`
-  width: 95%;
-  height: 100%;
-  background-color: #181875;
-`
-
 
 export {
-  ConsultaDashboardContainer,
-  ConsultaContainer
+  ConsultaDashboardContainer
 }

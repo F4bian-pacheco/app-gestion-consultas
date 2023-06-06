@@ -55,8 +55,7 @@ const TabNavItem = styled.li<TabNavItemProps>`
 
 const TabOutlet = styled.div`
   width: 100%;
-  height: 100%;
-  background: #ffffff;
+  background: #862b2b;
 `;
 
 const Tabs = () => {
