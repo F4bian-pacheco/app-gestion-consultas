@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import ConsultaTab from "./ConsultaTab";
-import HistorialConsultaTab from "./HistorialConsultaTab";
+import ConsultaTab from "./Consultas/ConsultaTab";
+import HistorialConsultaTab from "./Consultas/HistorialConsultaTab";
 
 const TabsContainer = styled.div`
   width: 90%;
