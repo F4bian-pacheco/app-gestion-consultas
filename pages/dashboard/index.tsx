@@ -1,5 +1,6 @@
 import React from 'react'
 import ContentDashboard from '../../components/hocs/ContentDashboard'
+import Head from 'next/head'
 
 const items = [
   {
@@ -11,9 +12,14 @@ const items = [
 
 function index() {
   return (
-    <ContentDashboard titulo={"Home"}>
+    <>
+      <Head>
+        <title>Inicio</title>
+      </Head>
+      <ContentDashboard titulo={"Home"}>
 
-    </ContentDashboard>
+      </ContentDashboard>
+    </>
   )
 }
 
