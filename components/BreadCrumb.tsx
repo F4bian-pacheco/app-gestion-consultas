@@ -45,8 +45,8 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
           return (
             <>
               <Link
-                href={crumb.path}
                 key={i}
+                href={crumb.path}
               >
                 {crumb.label}
               </Link>

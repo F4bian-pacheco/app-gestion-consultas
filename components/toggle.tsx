@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { ThemeContext } from '../context/TemaProvider';
 
@@ -50,12 +50,31 @@ const ToggleSwitchHandle = styled.div<ToggleSwitchHandleProps>`
 
 const ToggleSwitch = ({ tema, toggleTema }) => {
 
-  const [isActive, setIsActive] = useState(tema === 'light');
+  const [isActive, setIsActive] = useState(() => {
+    if (typeof localStorage !== 'undefined') {
+      const storedTheme = localStorage.getItem('tema');
+      if (storedTheme) {
+        console.log(`tema local: ${storedTheme}`)
+        return storedTheme !== 'dark';
+      }
+    }
+  });
+
+  // useEffect(() => {
+  //   if (typeof localStorage !== 'undefined') {
+  //     const storedTheme = localStorage.getItem('tema');
+  //     if (storedTheme) {
+  //       console.log(`tema local: ${storedTheme}`)
+  //       setIsActive(storedTheme !== 'dark');
+  //     }
+  //   }
+  // }, []);
 
   const handleToggle = () => {
     setIsActive(!isActive);
     localStorage.setItem('tema', isActive ? 'dark' : 'light');
-    toggleTema();
+    localStorage.setItem('active-toggle', isActive.valueOf().toString());
+    toggleTema(tema === 'light' ? 'dark' : 'light');
 
   };
 
