@@ -79,7 +79,7 @@ const DashboardContainer = styled.div`
   padding: 2rem 1rem 2rem 1rem;
   position: relative;
   overflow-y: auto;
-  background-color: #b92828;
+  /* background-color: #b92828; */
 `
 
 const ListLinks = styled(motion.ul)`
