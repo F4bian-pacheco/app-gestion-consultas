@@ -5,7 +5,7 @@ import HistorialConsultaTab from "./Consultas/HistorialConsultaTab";
 
 const TabsContainer = styled.div`
   width: 90%;
-  height: 90%;
+  height: 100%;
   /* background: #053742; */
   color: #000000;
 `;
@@ -55,6 +55,7 @@ const TabNavItem = styled.li<TabNavItemProps>`
 
 const TabOutlet = styled.div`
   width: 100%;
+  height: auto;
 `;
 
 const Tabs = () => {

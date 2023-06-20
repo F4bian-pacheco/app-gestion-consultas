@@ -4,12 +4,13 @@ import styled from 'styled-components'
 import { useRouter } from 'next/router'
 
 const HeaderContent = styled.header`
-  width: 100%;
-  height: 30px;
+  width: 1170px;
+  height: 1.9rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  background-color: #29c994;
 `
 
 

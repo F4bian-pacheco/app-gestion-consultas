@@ -70,17 +70,16 @@ const LogoContainer = styled.div`
 
 const DashboardContainer = styled.div`
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
   background-color: ${({ theme }) => theme.colors.secondaryBackground};
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+  height: auto;
   border-radius: 20px 20px 0 0;
-  padding: 1rem 2rem;
+  padding: 2rem 1rem 2rem 1rem;
   position: relative;
   overflow-y: auto;
+  background-color: #b92828;
 `
 
 const ListLinks = styled(motion.ul)`
