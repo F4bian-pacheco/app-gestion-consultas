@@ -2,14 +2,17 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { ConsultaI } from '../../libs/services'
 
-import {
-  AiFillCaretDown,
-  AiFillCaretUp
-} from 'react-icons/ai'
-
 interface ConsultaContainerProps {
   open: boolean
 }
+
+//TODO
+//* animar el cambio de altura de cada consulta
+//* crear el filtro y hacer una ventana modal para filtrar
+//* darle funcionalidad al boton de responder
+//* crear la pagina de responder por id usando dashboard/consultas/responder/:id
+//* mostrar foto de perfil del usuario
+//* transformar la info del usuario en un link a la pagina de ese usuario
 
 const ConsultaContainer = styled.div<ConsultaContainerProps>`
 /*? aca tengo que cambiar si hago un diseño responsivo */
