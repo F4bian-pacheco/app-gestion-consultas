@@ -12,6 +12,7 @@ interface Usuario {
 export interface ConsultaI {
   id: number;
   fecha_atencion: string | null;
+  fecha_creacion: string;
   respondida: boolean;
   tipo_consulta: string;
   asunto: string;
@@ -34,10 +35,11 @@ export const consultas: ConsultaI[] = [
   {
     id: 1,
     fecha_atencion: null,
+    fecha_creacion: "2023-05-29:00:00:00.000Z",
     respondida: false,
     tipo_consulta: 'Academica',
     asunto: 'No aparezco en el ramo de programación',
-    descripcion: 'Estaban revisando las notas y no aparezco en el ramo de programación, pero yo entregué todo a tiempo',
+    descripcion: 'Mientras se encontraban en plena revisión de las notas académicas, me di cuenta de que mi nombre no figuraba en la lista del ramo de programación. A pesar de que presenté todas las asignaciones dentro de los plazos establecidos, no parecía haber rastro alguno de mi participación en el curso. Esta situación me generó cierta preocupación, ya que esperaba recibir un reconocimiento por mis esfuerzos y dedicación en la entrega de los trabajos. Sin embargo, hasta el momento, no he recibido ninguna explicación o respuesta que aclare esta situación.',
     usuario: {
       id: 1,
       nombre: 'Juan',
@@ -52,6 +54,7 @@ export const consultas: ConsultaI[] = [
   {
     id: 2,
     fecha_atencion: '2023-05-29T00:00:00.000Z',
+    fecha_creacion: '2023-05-28T00:00:00.000Z',
     respondida: true,
     tipo_consulta: 'Otro',
     asunto: 'No puedo entrar a la plataforma',
@@ -70,6 +73,7 @@ export const consultas: ConsultaI[] = [
   {
     id: 3,
     fecha_atencion: "2023-06-03",
+    fecha_creacion: "2023-05-30:00:00:00.000Z",
     respondida: true,
     tipo_consulta: "Académica",
     asunto: "Duda sobre el proyecto final",
@@ -88,6 +92,7 @@ export const consultas: ConsultaI[] = [
   {
     id: 4,
     fecha_atencion: "2023-06-01",
+    fecha_creacion: "2023-05-31:13:00:00.000Z",
     respondida: true,
     tipo_consulta: "Académica",
     asunto: "Consulta sobre programación",

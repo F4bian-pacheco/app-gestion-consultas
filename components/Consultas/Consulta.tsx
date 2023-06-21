@@ -12,32 +12,20 @@ interface ConsultaContainerProps {
 }
 
 const ConsultaContainer = styled.div<ConsultaContainerProps>`
+/*? aca tengo que cambiar si hago un diseño responsivo */
   width: 100%;
-  height: ${({ open }) => open ? 'auto' : '70px'};
-  background-color: #f2f2f2;
+  height: ${({ open }) => open ? 'auto' : '54px'};
   border-radius: 10px;
+  background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
-  /* align-items: ${({ open }) => open ? 'flex-start' : 'center'}; */
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 1rem;
-  /* transition: all 0.3s ease-in-out; */
+  align-items: center;
+  justify-content: center;
+  /* transition: height 1s ease-in; */
 `
 
-const BotonDropdown = styled.button`
-  width: 6rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  background-color: #d1d1d1;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-`
-
-const ConsultaHeader = styled.div`
+const ConsultaInline = styled.div`
+  /* width: 1053px; */
   width: 100%;
   height: 54px;
   background-color: #f2f2f2;
@@ -46,20 +34,35 @@ const ConsultaHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  font-size: 1.2rem;
+  
+  &:first-child {
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(60, 145, 230, 0.5);
+    }
+  }
+
 `
-const ConsultaBody = styled.div`
+const ConsultaBlock = styled.div`
   width: 100%;
   height: 100%;
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 1rem;
 `
 
-const ConsultaInfoContainer = styled.div`
-  width: 100%;
+interface ConsultaInfoContainerProps {
+  width?: string
+}
+
+const ConsultaInfoContainer = styled.div<ConsultaInfoContainerProps>`
+  /* width: ${({ width }) => width ? width : '100%'}; */
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -72,50 +75,99 @@ interface ConsultaDataI {
   apellido: string
 }
 
-function Consultainfo({ titulo, data }: { titulo: string, data: string | ConsultaDataI }) {
+const ConsultaData = styled.p`
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 10px;
+`
+
+const ConsultaDataHeader = styled(ConsultaData)`
+  background-color: inherit;
+`
+
+const BotonResponder = styled.button`
+  width: 100%;
+  height: 54px;
+  outline: none;
+  align-self: center;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  cursor: pointer;
+  border: 1px solid #3C91E6;
+  transition: all 0.3s;
+  font-size: 1.5rem;
+
+  &:hover {
+    background-color: rgba(60, 145, 230, 0.5);
+    border: none
+  }
+`
+
+function ConsultaInfoBody({ titulo, data, width }: { titulo: string, data: string | ConsultaDataI, width?: string }) {
   return (
-    <ConsultaInfoContainer>
+    <ConsultaInfoContainer width={width}>
       <h4>{titulo}: </h4>
       {typeof data === 'object' ? (
-        <p>{data.nombre} {data.apellido}</p>
+        // si es usuario crear un link a la pagina de ese usuario
+        <ConsultaData>{data.nombre} {data.apellido}</ConsultaData>
       ) : (
-        <p>{data}</p>
+        <ConsultaData>{data}</ConsultaData>
       )}
     </ConsultaInfoContainer>
   )
 }
 
+function ConsultaInfoHeader({ titulo, data, width }: { titulo: string, data: string, width?: string }) {
+  return (
+    <ConsultaInfoContainer width={width}>
+      <h4>{titulo}: </h4>
+      <ConsultaDataHeader>{data}</ConsultaDataHeader>
+    </ConsultaInfoContainer>
+  )
+}
 
 
 function Consulta({ consulta }: { consulta: ConsultaI }) {
 
-  const buton_icons = {
-    "v": <AiFillCaretDown size={18} />,
-    "x": <AiFillCaretUp size={18} />
-  }
-
   const [open, setOpen] = useState(false)
-  const [buttonIcon, setbuttonIcon] = useState('v')
+  const [responder, setResponder] = useState(false)
 
   const toggleOpen = () => {
     setOpen(!open)
-    setbuttonIcon(open ? 'v' : 'x')
+  }
+
+  const toggleResponder = () => {
+    setResponder(!responder)
+  }
+
+  const changeResponderPage = () => {
+    //? acá tengo que cambiar de pagina a consultas/responder/:id
   }
 
   return (
     <ConsultaContainer open={open}>
-      <ConsultaHeader onClick={toggleOpen}>
-        <Consultainfo titulo='Asunto' data={consulta.asunto} />
-        <Consultainfo titulo='Categoria' data={consulta.tipo_consulta} />
-        {/* <BotonDropdown onClick={toggleOpen}>{buton_icons[buttonIcon]}</BotonDropdown> */}
-      </ConsultaHeader>
+      <ConsultaInline onClick={toggleOpen}>
+        <ConsultaInfoHeader titulo='Asunto' data={consulta.asunto} width='380px' />
+        <ConsultaInfoHeader titulo='Fecha' data={consulta.fecha_creacion} width='200px' />
+      </ConsultaInline>
       {open && (
-        <ConsultaBody>
-          <Consultainfo titulo='Usuario' data={{ nombre: consulta.usuario?.nombre, apellido: consulta.usuario?.apellido }} />
-          <Consultainfo titulo='Categoria' data={consulta.tipo_consulta} />
-          <Consultainfo titulo='Descripcion' data={consulta.descripcion} />
-          <button>Responder</button>
-        </ConsultaBody>
+        <>
+          <ConsultaInline>
+            <ConsultaInfoBody titulo='Usuario' data={{ nombre: consulta.usuario?.nombre, apellido: consulta.usuario?.apellido }} />
+            <ConsultaInfoBody titulo='Categoria' data={consulta.tipo_consulta} />
+          </ConsultaInline>
+          <ConsultaBlock>
+            <ConsultaInfoBody titulo='Descripcion' data={consulta.descripcion} />
+            <BotonResponder onClick={changeResponderPage}>Responder</BotonResponder>
+          </ConsultaBlock></>
+
       )}
     </ConsultaContainer>
   )
