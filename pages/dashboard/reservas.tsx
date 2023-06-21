@@ -1,7 +1,7 @@
 import React from 'react'
-import Dashboard from '../../components/hocs/Dashboard'
 import ContentDashboard from '../../components/hocs/ContentDashboard'
 import Head from 'next/head'
+import ReservasContainerComponent from '../../components/Reservas/Reservas'
 
 function reservasPage({ children }) {
   return (
@@ -10,7 +10,7 @@ function reservasPage({ children }) {
         <title>Reservas</title>
       </Head>
       <ContentDashboard titulo={"reservas"}>
-        {children}
+        <ReservasContainerComponent />
       </ContentDashboard>
     </>
   )

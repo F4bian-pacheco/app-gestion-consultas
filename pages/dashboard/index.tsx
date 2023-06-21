@@ -17,7 +17,7 @@ function index() {
         <title>Inicio</title>
       </Head>
       <ContentDashboard titulo={"Home"}>
-
+        {/* insertar cards */}
       </ContentDashboard>
     </>
   )

@@ -1,8 +1,7 @@
 import React from 'react'
-import Breadcrumbs from '../BreadCrumb'
 import {
   ConsultaDashboardContainer
-} from '../styled/Consulta.styled'
+} from '../styled/Consultas.styled'
 import Tabs from '../Tabs'
 
 
