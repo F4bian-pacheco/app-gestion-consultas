@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 
-const ReservasContainer = styled.div`
-  width: 100%;
-  height: 100%;
+const ReservasDashboardContainer = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 `
 
 
-export default ReservasContainer
+export default ReservasDashboardContainer
