@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { ConsultaI } from '../../libs/services'
+import { useRouter } from 'next/router'
 
 interface ConsultaContainerProps {
   open: boolean
@@ -141,6 +142,7 @@ function Consulta({ consulta }: { consulta: ConsultaI }) {
 
   const [open, setOpen] = useState(false)
   const [responder, setResponder] = useState(false)
+  const router = useRouter()
 
   const toggleOpen = () => {
     setOpen(!open)
@@ -152,6 +154,7 @@ function Consulta({ consulta }: { consulta: ConsultaI }) {
 
   const changeResponderPage = () => {
     //? acá tengo que cambiar de pagina a consultas/responder/:id
+    router.push(`/dashboard/consultas/responder/${consulta.id}`)
   }
 
   return (
