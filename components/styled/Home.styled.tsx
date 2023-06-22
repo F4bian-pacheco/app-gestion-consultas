@@ -79,6 +79,7 @@ const DashboardContainer = styled.div`
   padding: 2rem 1rem 2rem 1rem;
   position: relative;
   overflow-y: auto;
+  overflow-x: hidden;
   /* background-color: #b92828; */
 `
 
