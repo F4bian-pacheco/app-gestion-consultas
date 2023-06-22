@@ -57,6 +57,9 @@ function Dashboard({ children }) {
   useEffect(() => {
     // Obtén el nombre de la página actual desde el objeto `router`
     const currentPage = router.pathname;
+    //necesito un regex para /dashboard/consultas/responder/[id]
+
+
 
     // Mapea las rutas de las páginas a los índices correspondientes en el estado seleccionado
     const routeToIndex = {
@@ -69,7 +72,11 @@ function Dashboard({ children }) {
     };
 
     // Actualiza el estado seleccionado según la página actual
-    if (routeToIndex[currentPage]) {
+    // aca pasan cosas raras
+    const url = router.pathname.split('/');
+    if (url.includes('consultas')) {
+      setSelected(2);
+    } else if (routeToIndex[currentPage]) {
       setSelected(routeToIndex[currentPage]);
     }
   }, [router.pathname]);

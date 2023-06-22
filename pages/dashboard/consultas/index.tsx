@@ -1,6 +1,6 @@
 import React from 'react'
-import ContentDashboard from '../../components/hocs/ContentDashboard'
-import ConsultasContainerComponent from '../../components/Consultas/Consultas'
+import ContentDashboard from '../../../components/hocs/ContentDashboard'
+import ConsultasContainerComponent from '../../../components/Consultas/Consultas'
 import Head from 'next/head'
 
 
