@@ -1,7 +1,7 @@
 import React from 'react'
-import ContentDashboard from '../../components/hocs/ContentDashboard'
+import ContentDashboard from '../../../components/hocs/ContentDashboard'
 import Head from 'next/head'
-import ReservasContainerComponent from '../../components/Reservas/Reservas'
+import ReservasContainerComponent from '../../../components/Reservas/Reservas'
 
 function reservasPage({ children }) {
   return (

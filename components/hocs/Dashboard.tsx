@@ -136,7 +136,7 @@ function Dashboard({ children }) {
               sidebarOpen={sidebarOpen}
               className={selected === 4 ? 'selected' : ''}
               onClick={() => handleSelected(4)}>
-              <MyLink href="#"><FiUsers size={15} />
+              <MyLink href="/dashboard/usuarios"><FiUsers size={15} />
                 <Text sidebarOpen={sidebarOpen}>Usuarios</Text>
               </MyLink>
             </ListItem>
@@ -144,7 +144,7 @@ function Dashboard({ children }) {
               sidebarOpen={sidebarOpen}
               className={selected === 5 ? 'selected' : ''}
               onClick={() => handleSelected(5)}>
-              <MyLink href="#"><BiStats size={15} />
+              <MyLink href="/dashboard/estadisticas"><BiStats size={15} />
                 <Text sidebarOpen={sidebarOpen}>Estadisticas</Text>
               </MyLink>
             </ListItem>
