@@ -40,20 +40,28 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   return (
     <BreadCrumbContainer>
       {items.map((crumb, i) => {
+        console.log("este es el crumb", crumb)
         const isLastItem = i === items.length - 1;
         if (!isLastItem) {
-          return (
-            <>
-              <Link
-                key={i}
-                href={crumb.path}
-              >
-                {crumb.label}
-              </Link>
-              {/* separator */}
+          if (crumb.label === 'Responder') {
+            return <>
+              <span key={i}>{crumb.label}</span>
               <span> {' > '} </span>
             </>
-          );
+          } else {
+            return (
+              <>
+                <Link
+                  key={i}
+                  href={crumb.path}
+                >
+                  {crumb.label}
+                </Link>
+                {/* separator */}
+                <span> {' > '} </span>
+              </>
+            );
+          }
         } else {
           return <span key={i} className="last">{crumb.label}</span>;
         }

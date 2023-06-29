@@ -1,11 +1,14 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import ContentDashboard from '../../../../components/hocs/ContentDashboard'
 
 function Respuesta() {
   const router = useRouter()
   const { id } = router.query
   return (
-    <div>Respuesta {id}</div>
+    <ContentDashboard titulo={"respuestas"}>
+      Respuesta {id}
+    </ContentDashboard>
   )
 }
 

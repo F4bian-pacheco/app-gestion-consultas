@@ -21,8 +21,8 @@ function ContentDashboard({ titulo, children }) {
 
   const router = useRouter()
 
-  const { pathname } = router
-  const items = pathname.split('/').map((path, index) => {
+  const { pathname, asPath } = router
+  const items = asPath.split('/').map((path, index) => {
     if (index === 0) {
       return {
         label: 'Inicio',
@@ -36,7 +36,7 @@ function ContentDashboard({ titulo, children }) {
     return {
       // capitalize first letter
       label: path.charAt(0).toUpperCase() + path.slice(1),
-      path: `${pathname.split(path)[0]}${path}`
+      path: `${asPath.split(path)[0]}${path}`
     }
   }).filter(Boolean)
 
