@@ -1,9 +1,11 @@
+import { NextApiRequest, NextApiResponse } from 'next'
 import { pool } from '../../../config/db'
+import { getConsultas } from '../../../database/db'
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req.query
-  const [rows] = await pool.query('SELECT * FROM consultas')
   if (method === "GET") {
+    const rows = await getConsultas()
     res.status(200).json({ data: rows })
   }
 }

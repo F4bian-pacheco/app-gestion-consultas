@@ -14,23 +14,25 @@ import {
 
 function Login() {
 
-  const [username, setUsername] = React.useState('')
-  const [password, setPassword] = React.useState('')
+  const [loginData, setLoginData] = React.useState({
+    usuario: '',
+    contraseña: ''
+  })
   const router = useRouter()
 
 
-  const handleUsernameChange = (ev) => {
-    setUsername(ev.target.value)
+  const handleLoginDataChange = (ev) => {
+    setLoginData({
+      ...loginData,
+      [ev.target.name]: ev.target.value
+    })
   }
 
-  const handlePasswordChange = (ev) => {
-    setPassword(ev.target.value)
-  }
 
   const handleSubmit = (ev) => {
     ev.preventDefault()
 
-    console.log(username, password)
+    console.log(loginData.usuario, loginData.contraseña)
     router.push('/dashboard')
   }
 
@@ -41,8 +43,8 @@ function Login() {
       </ImageContainer>
       <LoginForm onSubmit={handleSubmit}>
         <LoginTitle>Inicio de Sesión</LoginTitle>
-        <LoginInput type="text" placeholder="Nombre de Usuario" name='usuario' onChange={handleUsernameChange} />
-        <LoginInput type="password" placeholder="Contraseña" name='contraseña' onChange={handlePasswordChange} />
+        <LoginInput type="text" placeholder="Nombre de Usuario" name='usuario' onChange={handleLoginDataChange} />
+        <LoginInput type="password" placeholder="Contraseña" name='contraseña' onChange={handleLoginDataChange} />
         <MyLink href="/">Olvidaste tu contraseña?</MyLink>
         <LoginButton type="submit">Ingresar</LoginButton>
       </LoginForm>
