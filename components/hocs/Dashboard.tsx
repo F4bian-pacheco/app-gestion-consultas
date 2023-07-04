@@ -44,7 +44,7 @@ function Dashboard({ children }) {
 
   const router = useRouter();
   const [selected, setSelected] = useState<number>(1)
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const { tema, toggleTema } = useContext(ThemeContext);
 
   const handleSelected = (itemSelected) => {
