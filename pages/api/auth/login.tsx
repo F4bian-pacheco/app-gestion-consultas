@@ -1,13 +1,16 @@
 import jwt from 'jsonwebtoken'
 import { serialize } from 'cookie'
 import { getUsuario } from '../../../database/db'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 
-export default async function loginHandler(req, res) {
+export default async function loginHandler(req: NextApiRequest, res: NextApiResponse) {
 
   const { email, contraseña } = req.body
 
   // check if user exists
+
+  // if (req.cookies.token) return res.status(400).json({ error: "Ya estas logueado" })
 
   if (req.method === "POST") {
     if (!email || !contraseña) return res.status(400).json({ error: "Faltan datos" })

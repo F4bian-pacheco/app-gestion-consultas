@@ -22,19 +22,22 @@ export const AuthProvider = ({ children }) => {
   const loginUser = async ({ email, contraseña }) => {
     const response = await axios.post("/api/auth/login", { email, contraseña })
     if (response.status === 200) {
-      setAuthState({
-        token: response.data.token,
-        user: response.data.user
-      })
       getProfile()
       router.push('/dashboard')
+    }
+  }
+
+  const logoutUser = async () => {
+    const response = await axios.post("/api/auth/logout")
+    if (response.status === 200) {
+      setAuthState({ token: null, user: null })
     }
   }
 
   const getProfile = async () => {
     const response = await axios.get("/api/perfil")
     if (response.status === 200) {
-      setDataUser(response.data)
+      setDataUser({ ...response.data })
     }
   }
 
@@ -44,6 +47,7 @@ export const AuthProvider = ({ children }) => {
     authState,
     getProfile,
     dataUser,
+    logoutUser
   }
 
   return (

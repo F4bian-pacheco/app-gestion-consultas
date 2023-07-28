@@ -6,6 +6,7 @@ import Dashboard from '../components/hocs/Dashboard'
 import login from './login'
 import index from './index'
 import { ThemeContext, TemaProvider } from '../context/TemaProvider'
+import { AuthProvider } from '../context/AuthContext'
 
 
 const theme: DefaultTheme = {
@@ -106,18 +107,14 @@ export default function App({ Component, pageProps }: AppProps) {
   // }, []);
 
   return (
-    <TemaProvider>
-      <ThemeWrapper>
-        {Component === login || Component === index ? (
+
+    <AuthProvider>
+      <TemaProvider>
+        <ThemeWrapper>
           <Component {...pageProps} />
-        ) :
-          (
-            <Dashboard>
-              <Component {...pageProps} />
-            </Dashboard>
-          )}
-      </ThemeWrapper>
-    </TemaProvider>
+        </ThemeWrapper>
+      </TemaProvider>
+    </AuthProvider>
   )
 
 }

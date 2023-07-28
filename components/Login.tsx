@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   ImageContainer,
   StyledImage,
@@ -9,16 +9,20 @@ import {
   LoginButton,
   MyLink
 } from '../components/styled/Login.styled'
+import axios from 'axios'
+import { AuthContext } from '../context/AuthContext'
 
 
 
 function Login() {
 
   const [loginData, setLoginData] = React.useState({
-    usuario: '',
+    email: '',
     contraseña: ''
   })
   const router = useRouter()
+
+  const { loginUser } = useContext(AuthContext)
 
 
   const handleLoginDataChange = (ev) => {
@@ -29,11 +33,15 @@ function Login() {
   }
 
 
-  const handleSubmit = (ev) => {
+  const handleSubmit = async (ev) => {
     ev.preventDefault()
 
-    console.log(loginData.usuario, loginData.contraseña)
-    router.push('/dashboard')
+    // const response = await axios.post("/api/auth/login", loginData)
+    // if (response.status === 200) {
+    //   router.push('/dashboard')
+    // }
+    // router.push('/dashboard')
+    loginUser(loginData)
   }
 
   return (
@@ -43,7 +51,7 @@ function Login() {
       </ImageContainer>
       <LoginForm onSubmit={handleSubmit}>
         <LoginTitle>Inicio de Sesión</LoginTitle>
-        <LoginInput type="text" placeholder="Nombre de Usuario" name='usuario' onChange={handleLoginDataChange} />
+        <LoginInput type="text" placeholder="Email" name='email' onChange={handleLoginDataChange} />
         <LoginInput type="password" placeholder="Contraseña" name='contraseña' onChange={handleLoginDataChange} />
         <MyLink href="/">Olvidaste tu contraseña?</MyLink>
         <LoginButton type="submit">Ingresar</LoginButton>

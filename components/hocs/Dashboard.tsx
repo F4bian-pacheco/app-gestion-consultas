@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { Turn as Hamburger } from 'hamburger-react'
 import { motion } from 'framer-motion'
 import { ThemeContext } from '../../context/TemaProvider';
+import { AuthContext } from '../../context/AuthContext'
 
 import {
   HomeContainer,
@@ -46,6 +47,7 @@ function Dashboard({ children }) {
   const [selected, setSelected] = useState<number>(1)
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const { tema, toggleTema } = useContext(ThemeContext);
+  const { logoutUser, getProfile, dataUser } = useContext(AuthContext);
 
   const handleSelected = (itemSelected) => {
     setSelected(itemSelected)
@@ -54,7 +56,10 @@ function Dashboard({ children }) {
     setSidebarOpen(!sidebarOpen);
   };
 
+
+
   useEffect(() => {
+    getProfile()
     // Obtén el nombre de la página actual desde el objeto `router`
     const currentPage = router.pathname;
     //necesito un regex para /dashboard/consultas/responder/[id]
@@ -91,7 +96,7 @@ function Dashboard({ children }) {
       <Header>
         <Hamburger size={20} toggled={sidebarOpen} toggle={handleToggleSidebar} />
         <h1>Header</h1>
-        <p>perfil - {tema}</p>
+        <p>{dataUser?.nombre || "usuario"} - {tema}</p>
       </Header>
       <Sidebar
         initial={true}
@@ -161,7 +166,7 @@ function Dashboard({ children }) {
               </MyLink>
             </ListItem>
             <ListItem sidebarOpen={sidebarOpen}>
-              <MyLink href="/login"> <FiLogOut color='red' size={15} />
+              <MyLink href="/login" onClick={logoutUser}> <FiLogOut color='red' size={15} />
                 <Text sidebarOpen={sidebarOpen}>Cerrar Sesión</Text>
               </MyLink>
             </ListItem>
