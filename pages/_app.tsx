@@ -111,7 +111,14 @@ export default function App({ Component, pageProps }: AppProps) {
     <AuthProvider>
       <TemaProvider>
         <ThemeWrapper>
-          <Component {...pageProps} />
+          {Component === login || Component === index ? (
+            <Component {...pageProps} />
+          ) :
+            (
+              <Dashboard>
+                <Component {...pageProps} />
+              </Dashboard>
+            )}
         </ThemeWrapper>
       </TemaProvider>
     </AuthProvider>
@@ -119,5 +126,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
 }
 
-
+{/* <TemaProvider>
+<ThemeWrapper>
+  <Component {...pageProps} />
+</ThemeWrapper>
+</TemaProvider> */}
 
