@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async ({ email, contraseña }) => {
     const response = await axios.post("/api/auth/login", { email, contraseña })
+    console.log(response)
     if (response.status === 200) {
       getProfile()
       router.push('/dashboard')

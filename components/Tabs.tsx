@@ -7,7 +7,7 @@ const TabsContainer = styled.div`
   width: 90%;
   height: 100%;
   /* background: #053742; */
-  color: #000000;
+  color: ${({ theme }) => theme.colors.secondary};
 `;
 
 const TabNav = styled.ul`
@@ -37,7 +37,7 @@ const TabNavItem = styled.li<TabNavItemProps>`
   color: rgba(0, 0, 0, 0.5);
   
   &:nth-child(${({ activeTab }) => activeTab}) {
-    color: #000;
+    color: ${({ theme }) => theme.colors.primary};
     /* background-color: #d1d1d1; */
     &::after {
         content: '';

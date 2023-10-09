@@ -25,6 +25,7 @@ export async function checkLogin(email: string, password: string) {
 export async function getUsuario(email: string, password: string) {
   if (await checkLogin(email, password)) {
     const [rows] = await pool.query(`SELECT * FROM usuarios WHERE email='${email}'`)
+    console.log(rows[0])
     return rows[0]
   }
   return null

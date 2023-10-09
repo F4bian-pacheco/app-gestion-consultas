@@ -20,11 +20,12 @@ const ConsultaContainer = styled.div<ConsultaContainerProps>`
   width: 100%;
   height: ${({ open }) => open ? 'auto' : '54px'};
   border-radius: 10px;
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.colors.secondaryBackground};
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: ${({ theme }) => theme.colors.primary};
   /* transition: height 1s ease-in; */
 `
 
@@ -32,28 +33,24 @@ const ConsultaInline = styled.div`
   /* width: 1053px; */
   width: 100%;
   height: 54px;
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.colors.background};
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
   font-size: 1.2rem;
+  /* border: 1px solid ${({ theme }) => theme.colors.primary}; */
   
   &:first-child {
-    border-radius: 10px;
     cursor: pointer;
-
-    &:hover {
-      background-color: rgba(60, 145, 230, 0.5);
-    }
   }
 
 `
 const ConsultaBlock = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.colors.background};
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -72,6 +69,7 @@ const ConsultaInfoContainer = styled.div<ConsultaInfoContainerProps>`
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+  border: none;
 `
 
 interface ConsultaDataI {
@@ -84,7 +82,6 @@ const ConsultaData = styled.p`
   padding: 1rem;
   font-size: 1.2rem;
   font-weight: 500;
-  border-radius: 10px;
 `
 
 const ConsultaDataHeader = styled(ConsultaData)`

@@ -107,6 +107,25 @@ export const consultas: ConsultaI[] = [
       telefono: "5551234567"
     },
     estado: "Resuelta"
+  },
+  {
+    id: 5,
+    fecha_atencion: "2023-06-01",
+    fecha_creacion: "2023-05-31:13:00:00.000Z",
+    respondida: true,
+    tipo_consulta: "Académica",
+    asunto: "Consulta sobre programación",
+    descripcion: "Necesito ayuda con un problema de programación en Java.",
+    usuario: {
+      id: 4,
+      nombre: "Ana",
+      apellido: "Rodríguez",
+      email: "anarodriguez@example.com",
+      rol: "Estudiante",
+      password: "contraseña789",
+      telefono: "5551234567"
+    },
+    estado: "Resuelta"
   }
 ];
 
